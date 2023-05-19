@@ -1,0 +1,42 @@
+public class Main {
+    public static void main(String[] args) {
+        // create game board
+        int[][] board = new int[20][10];
+
+        // create the first piece
+        int[][] piece = new int[][]{
+                {1, 1},
+                {1, 1},
+        };
+
+        // game loop
+        while (true) {
+            // move piece down
+            // (in a real game, you'd need to check for collisions here)
+            System.out.println("Piece moved down");
+
+            // draw the board
+            drawBoard(board);
+
+            // wait for a bit before the next frame
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    static void drawBoard(int[][] board) {
+        for (int[] row : board) {
+            for (int cell : row) {
+                if (cell == 0) {
+                    System.out.print(".");
+                } else {
+                    System.out.print("X");
+                }
+            }
+            System.out.println();
+        }
+    }
+}
